@@ -14,7 +14,7 @@ public class LoggingServiceImpl extends RemoteServiceServlet implements
 {
    public Boolean verify()
    {
-      double[][] v1 = {{1.,2.},{3.,4.},{5.,6.}};
+      /*double[][] v1 = {{1.,2.},{3.,4.},{5.,6.}};
       Matrix alphaM = new Matrix(v1);
       double[][] v2 = {{3.,2.,1.}};
       Matrix betaM = new Matrix(v2);
@@ -49,7 +49,12 @@ public class LoggingServiceImpl extends RemoteServiceServlet implements
       }
       
       res = nn.getOutput(input1);
-      res.print(1, 10);
+      res.print(1, 10);*/
+      
+      DatabaseConnector db = new DatabaseConnector("jdbc:mysql://localhost/gloggerdb", 
+            "gloggeruser", "gloggerpass");
+      db.setParams("krzycho", 2, "qazqazqaz");
+      System.out.println(db.getParams("krzycho", 2));
       
       return null;
    }
