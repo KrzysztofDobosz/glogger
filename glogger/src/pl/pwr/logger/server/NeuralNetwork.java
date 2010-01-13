@@ -30,8 +30,14 @@ public class NeuralNetwork
       betaMatrix = betaM;
       beta = inBeta;
       eta = inEta;
-      //v = new Matrix(1,1);
-      //y = new Matrix(1,1);
+   }
+   public Matrix getAlphaMatrix()
+   {
+      return alphaMatrix;
+   }
+   public Matrix getBetaMatrix()
+   {
+      return betaMatrix;
    }
    /**
     * Activation function, in this case - logistic
