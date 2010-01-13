@@ -54,7 +54,7 @@ public class GRegistrator implements EntryPoint
 		nameField.setText("User Name");
 
 		// We can add style names to widgets
-		regButton.addStyleName("sendButton");
+		regButton.addStyleName("regButton");
 		
 		bPanel.add(nameField);
 		bPanel.add(regButton);
