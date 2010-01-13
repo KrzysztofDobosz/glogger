@@ -12,5 +12,5 @@ public interface LoggingServiceAsync
    void verify(String userName, String data, AsyncCallback<Boolean> callback);
 
    void train(String userName, ArrayList<String> dataArray,
-         AsyncCallback<Void> callback);
+         AsyncCallback<Boolean> callback);
 }

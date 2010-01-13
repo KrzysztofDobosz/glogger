@@ -99,22 +99,29 @@ public class DatabaseConnector
 
          Statement db = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                ResultSet.CONCUR_UPDATABLE);
-         String query = "";
-         query += "SELECT * FROM `User` WHERE login='" + userLogin + "';";
+         String query = "SELECT COUNT(*) FROM `User` WHERE login='" + userLogin
+               + "';";
          ResultSet rs = db.executeQuery(query);
+         rs.next();
+         if (rs.getInt(1) == 0)
+         {
+            query = "INSERT INTO `User` (login,password,email,first_layer_params,second_layer_params) VALUES('"
+                  + userLogin + "','','','aaa','aaa');";
+            db.executeUpdate(query);
+         }
+         query = "SELECT * FROM `User` WHERE login='" + userLogin + "';";
+         rs = db.executeQuery(query);
          if (rs.next())
          {
             if (layerNr == 1)
             {
                Blob b = (Blob) rs.getBlob("first_layer_params");
-               b.truncate(0);
                b.setBytes(1, params);
                rs.updateBlob("first_layer_params", b);
             }
             else
             {
                Blob b = (Blob) rs.getBlob("second_layer_params");
-               b.truncate(0);
                b.setBytes(1, params);
                rs.updateBlob("second_layer_params", b);
             }

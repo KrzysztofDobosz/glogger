@@ -94,7 +94,6 @@ public class NeuralNetwork
          }
          epsilon.set(m,0,temp);
       }
-
       for (int m = 0; m < betaMatrix.getColumnDimension(); m ++)
          for(int n = 0; n < betaMatrix.getRowDimension(); n ++)
          {
