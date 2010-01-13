@@ -12,5 +12,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface LoggingService extends RemoteService
 {
    Boolean verify(String userName, String data);
-   void train(String userName, ArrayList<String> dataArray);
+   Boolean train(String userName, ArrayList<String> dataArray);
 }

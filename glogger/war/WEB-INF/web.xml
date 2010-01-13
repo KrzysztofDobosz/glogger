@@ -16,6 +16,11 @@
     <url-pattern>/glogger/logger</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+    <servlet-name>LoggingServlet</servlet-name>
+    <url-pattern>/pl.pwr.logger.GRegistrator/logger</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>GLogger.html</welcome-file>
